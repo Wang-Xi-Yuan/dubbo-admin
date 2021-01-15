@@ -83,6 +83,8 @@ public class ZookeeperMetaDataCollector implements MetaDataCollector {
         //TODO error handing
         try {
             String path = getNodePath(identifier);
+            // 这里的path路径感觉不对
+            path = path + "/service.data";
             if (client.checkExists().forPath(path) == null) {
                 return null;
             }
